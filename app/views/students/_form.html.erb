@@ -1,0 +1,54 @@
+<script>
+$(document).ready(function(){
+
+  $(".submit").click(function(){
+    alert("script")
+      $.ajax({
+      url: '/student',
+      type: 'POST',
+      success: function(data){
+                    
+    }
+
+
+  });
+ });
+
+
+</script>
+
+
+
+
+
+
+
+<div id="page">
+
+<%= form_for(@student, :remote => true) do |f| %>
+  <% if @student.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+      <ul>
+      <% @student.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :rollno %><br>
+    <%= f.number_field :rollno %>
+  </div>
+  <div class="actions">
+    <%= f.submit :disable_with => 'Please wait...', :class => "submit"%>
+  </div>
+<% end %>
+
+</div>
