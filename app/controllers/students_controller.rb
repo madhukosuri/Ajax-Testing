@@ -36,17 +36,17 @@ class StudentsController < ApplicationController
     #  #render 'index'
 
 
-    # respond_to do |format|
-    #   if @student.save
-    #     #format.html { redirect_to @student, notice: 'Student was successfully created.' }
-    #     format.js 
-    #     render :action => 'index'
-    #    # format.json { render action: 'show', status: :created, location: @student }
-    #   else
-    #     format.html { render action: 'new' }
-    #     # format.json { render json: @student.errors, status: :unprocessable_entity }
-    #     format.js { render :js => @student }
-    #   end
+    respond_to do |format|
+      if @student.save
+        #format.html { redirect_to @student, notice: 'Student was successfully created.' }
+        format.js 
+        render :action => 'index'
+       # format.json { render action: 'show', status: :created, location: @student }
+      else
+        format.html { render action: 'new' }
+        # format.json { render json: @student.errors, status: :unprocessable_entity }
+        format.js { render :js => @student }
+      end
     end
 
 
